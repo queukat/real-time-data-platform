@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:5.5.1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - '2181:2181'
+
+  kafka:
+    image: confluentinc/cp-kafka:5.5.1
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - '9092:9092'
+
+  mongodb:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  data_ingestion:
+    build: ./data_ingestion
+    depends_on:
+      - kafka
+
+  stream_processing:
+    build: ./stream_processing
+    depends_on:
+      - kafka
+      - mongodb
+
+  web_backend:
+    build: ./web_backend
+    depends_on:
+      - mongodb
+    ports:
+      - '5000:5000'
+
+  web_frontend:
+    build: ./web_frontend
+    depends_on:
+      - web_backend
+    ports:
+      - '3000:3000'
