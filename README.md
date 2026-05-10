@@ -1,5 +1,9 @@
 # Real-Time Data Processing and Analytics Platform
 
+<!-- public-repo-status -->
+> Status: Legacy/reference. This repository is kept public as an architecture and implementation example, but it is not actively supported. Issues and pull requests are disabled unless support is reopened.
+
+
 ## Project Overview
 
 This project is a real-time data processing and analytics platform that ingests streaming data, processes it using Apache Spark and Kafka, and provides interactive visualizations through a web interface.
