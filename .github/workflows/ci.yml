@@ -1,6 +1,13 @@
+# Legacy/reference repository CI.
+# Run this workflow manually when intentionally checking the old Docker stack.
+
 name: CI
 
-on: [push, pull_request]
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
