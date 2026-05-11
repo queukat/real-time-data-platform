@@ -3,7 +3,6 @@
 <!-- public-repo-status -->
 > Status: Legacy/reference. This repository is kept public as an architecture and implementation example, but it is not actively supported. Issues and pull requests are disabled unless support is reopened.
 
-
 ## Project Overview
 
 This project is a real-time data processing and analytics platform that ingests streaming data, processes it using Apache Spark and Kafka, and provides interactive visualizations through a web interface.
@@ -37,7 +36,6 @@ git clone https://github.com/yourusername/real-time-data-platform.git
 cd real-time-data-platform
 ```
 
-
 ### Start the Services
 ```bash
 docker-compose up
@@ -54,9 +52,6 @@ Real-time data will be visualized on the frontend.
 
 Contributions are welcome! Please open an issue or submit a pull request.
 
-### License
-
-This project is licensed under the MIT License.
 ## License
 
 <!-- commercial-license-policy -->
